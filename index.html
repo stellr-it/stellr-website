@@ -32,6 +32,13 @@
   .tile:hover { transform: translateY(-5px); box-shadow: 0 16px 32px rgba(32, 26, 18, 0.14); }
   .tile:hover .tile-icon { animation: icon-wiggle 0.4s ease; }
   @keyframes icon-wiggle { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-10deg); } 50% { transform: rotate(10deg); } 75% { transform: rotate(-6deg); } }
+  .rotator-line { display: inline-block; vertical-align: bottom; white-space: nowrap; }
+  .rotator { white-space: nowrap; display: inline-block; vertical-align: bottom; overflow: hidden; transition: width 0.4s ease; }
+  .rotator-rocket { display: inline-block; vertical-align: bottom; margin-left: 0.25em; }
+  .rotator-word { display: inline-block; color: #8c6a14; transition: transform 0.4s ease, opacity 0.4s ease; }
+  .rotator-word.out { transform: translateY(-100%); opacity: 0; }
+  .rotator-word.in-start { transform: translateY(100%); opacity: 0; transition: none; }
+  @media (prefers-reduced-motion: reduce) { .rotator, .rotator-word { transition: none; } }
 </style>
 <script src="https://embed.typeform.com/next/embed.js"></script>
 </head>
@@ -53,7 +60,7 @@
 
   <!-- Hero -->
   <section style="padding: clamp(40px, 8vw, 72px) clamp(20px, 5vw, 64px) clamp(32px, 6vw, 56px); display: flex; flex-direction: column; gap: 24px; max-width: 760px;">
-    <h1 style="margin: 0; font-size: clamp(32px, 5.5vw, 54px); line-height: 1.15; font-weight: 800;">We help build better businesses 🚀</h1>
+    <h1 style="margin: 0; font-size: clamp(32px, 5.5vw, 54px); line-height: 1.15; font-weight: 800;">We help build better <span class="rotator-line"><span class="rotator"><span class="rotator-word" id="rotator-word">businesses</span></span><span class="rotator-rocket">🚀</span></span></h1>
     <p style="margin: 0; font-size: clamp(15px, 2.2vw, 18px); line-height: 1.65; color: #5c5344; max-width: 580px;">Running a business is hard. Why make it harder by worrying about the technology? We handle your users, your devices, your endpoint security, and your SaaS stack, so you can get back to your business.</p>
     <div style="display: flex; gap: 16px; margin-top: 8px;">
       <a href="#" class="btn-cta js-open-contact-modal" style="background: #daa520; color: #000000; font-weight: 700; font-size: 16px; padding: 16px 30px; border-radius: 999px;">Let's work together <span class="shake-emoji" aria-hidden="true">🤝</span></a>
@@ -228,7 +235,46 @@
 </div>
 <script>
   (function () {
-    var overlay = document.getElementById('contact-modal-overlay');
+    var el = document.getElementById('rotator-word');
+    if (el && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var box = el.parentNode;
+      var words = ['businesses', 'systems', 'workflows', 'operations', 'security'];
+      var idx = 0;
+      var line = box.parentNode;
+      var rocket = line.querySelector('.rotator-rocket');
+      // Reserve room for the widest word + rocket on the outer wrapper so line
+      // breaking never changes mid-rotation; the inner box still hugs each word.
+      function fitBox() {
+        var current = el.textContent, max = 0;
+        line.style.width = '';
+        for (var i = 0; i < words.length; i++) {
+          el.textContent = words[i];
+          max = Math.max(max, el.offsetWidth);
+        }
+        el.textContent = current;
+        var extra = rocket.getBoundingClientRect().width + parseFloat(getComputedStyle(rocket).marginLeft);
+        line.style.width = Math.ceil(max + extra) + 'px';
+        box.style.width = el.offsetWidth + 'px';
+      }
+      fitBox();
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitBox);
+      window.addEventListener('resize', fitBox);
+      setInterval(function () {
+        idx = (idx + 1) % words.length;
+        el.classList.add('out');
+        setTimeout(function () {
+          el.textContent = words[idx];
+          el.classList.remove('out');
+          el.classList.add('in-start');
+          box.style.width = el.offsetWidth + 'px';
+          void el.offsetWidth;
+          el.classList.remove('in-start');
+        }, 400);
+      }, 3200);
+    }
+  })();
+  (function () {
+    var overlay =document.getElementById('contact-modal-overlay');
     var closeBtn = document.getElementById('contact-modal-close');
     var openers = document.querySelectorAll('.js-open-contact-modal');
     function openModal(e) {
