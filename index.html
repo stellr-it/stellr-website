@@ -28,7 +28,9 @@
   .contact-modal iframe, .contact-modal > div { width: 100%; height: 100%; border: 0; }
   .contact-modal-close { position: absolute; top: 12px; right: 12px; z-index: 2; width: 36px; height: 36px; border-radius: 999px; border: none; background: #201a12; color: #ffffff; font-size: 18px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; }
   .contact-modal-close:hover { background: #8c6a14; }
-  .tile { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  .tile { height: 100%; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  #services .tile { height: 244px; }
+  #tools .tile { height: 264px; }
   .tile:hover { transform: translateY(-5px); box-shadow: 0 16px 32px rgba(32, 26, 18, 0.14); }
   .tile:hover .tile-icon { animation: icon-wiggle 0.4s ease; }
   @keyframes icon-wiggle { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-10deg); } 50% { transform: rotate(10deg); } 75% { transform: rotate(-6deg); } }
@@ -39,17 +41,42 @@
   .rotator-word.out { transform: translateY(-100%); opacity: 0; }
   .rotator-word.in-start { transform: translateY(100%); opacity: 0; transition: none; }
   @media (prefers-reduced-motion: reduce) { .rotator, .rotator-word { transition: none; } }
+
+  .sq-field-c { position: absolute; top: 0; right: 0; width: 46%; z-index: 1; display: grid; grid-template-columns: repeat(14, 1fr); grid-auto-rows: auto; gap: 7px; padding: 24px; pointer-events: none; -webkit-mask-image: radial-gradient(circle at top right, black 35%, transparent 75%); mask-image: radial-gradient(circle at top right, black 35%, transparent 75%); }
+  .sq-field-c .sq { aspect-ratio: 1 / 1; background: rgba(32, 26, 18, 0.09); border-radius: 2px; opacity: 0; animation: sq-pulse-c 5.5s ease-in-out infinite; }
+  .sq-field-c .sq:nth-child(6n) { background: rgba(218, 165, 32, 0.5); }
+  .sq-field-c .sq:nth-child(13n) { background: rgba(218, 165, 32, 0.35); }
+  @keyframes sq-pulse-c { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+  .sq-field-c .sq:nth-child(2n) { animation-delay: 0.9s; }
+  .sq-field-c .sq:nth-child(3n) { animation-delay: 2.0s; animation-duration: 6.4s; }
+  .sq-field-c .sq:nth-child(5n) { animation-delay: 3.1s; }
+  .sq-field-c .sq:nth-child(7n) { animation-delay: 0.5s; animation-duration: 4.8s; }
+
+  .dotted-grid-bg { background-image: radial-gradient(circle, rgba(32, 26, 18, 0.09) 0.7px, transparent 1.2px); background-size: 14px 14px; }
+
+  .sq-field-mirror { position: absolute; bottom: 0; right: 0; width: 46%; z-index: 1; display: grid; grid-template-columns: repeat(14, 1fr); grid-auto-rows: auto; gap: 7px; padding: 24px; pointer-events: none; -webkit-mask-image: radial-gradient(circle at bottom right, black 35%, transparent 75%); mask-image: radial-gradient(circle at bottom right, black 35%, transparent 75%); }
+  .sq-field-mirror .sq { aspect-ratio: 1 / 1; background: rgba(32, 26, 18, 0.09); border-radius: 2px; opacity: 0; animation: sq-pulse-c 5.5s ease-in-out infinite; }
+  .sq-field-mirror .sq:nth-child(6n) { background: rgba(218, 165, 32, 0.5); }
+  .sq-field-mirror .sq:nth-child(13n) { background: rgba(218, 165, 32, 0.35); }
+  .sq-field-mirror .sq:nth-child(2n) { animation-delay: 0.9s; }
+  .sq-field-mirror .sq:nth-child(3n) { animation-delay: 2.0s; animation-duration: 6.4s; }
+  .sq-field-mirror .sq:nth-child(5n) { animation-delay: 3.1s; }
+  .sq-field-mirror .sq:nth-child(7n) { animation-delay: 0.5s; animation-duration: 4.8s; }
 </style>
 <script src="https://embed.typeform.com/next/embed.js"></script>
 </head>
 <body>
 <div style="width: 100%; max-width: 1280px; margin: 0 auto; background: #faf8f5; display: flex; flex-direction: column;">
 
-  <!-- Nav -->
-  <nav class="site-nav" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; row-gap: 12px; padding: clamp(16px, 3vw, 24px) clamp(20px, 5vw, 64px);">
+  <!-- Nav + Hero (background squares confined to this region) -->
+  <div style="position: relative; overflow: hidden;">
+    <div class="sq-field-c"><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq"></div><div class="sq"></div></div>
+
+    <!-- Nav -->
+    <nav class="site-nav" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; row-gap: 12px; padding: clamp(16px, 3vw, 24px) clamp(20px, 5vw, 64px);">
     <div style="display: flex; align-items: center; gap: 12px;">
       <img src="logo.png" alt="Stellr IT" style="width: 32px; height: 32px; object-fit: contain;">
-      <span style="font-size: 15px; font-weight: 800;">Stellr IT</span>
+      <span style="font-size: 20px; font-weight: 800;">Stellr IT</span>
     </div>
     <div style="display: flex; align-items: center; flex-wrap: wrap; gap: clamp(16px, 3vw, 36px);">
       <a class="navlink" href="#services">Services</a>
@@ -58,19 +85,20 @@
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section style="padding: clamp(40px, 8vw, 72px) clamp(20px, 5vw, 64px) clamp(32px, 6vw, 56px); display: flex; flex-direction: column; gap: 24px; max-width: 760px;">
+    <!-- Hero -->
+    <section style="padding: clamp(40px, 8vw, 72px) clamp(20px, 5vw, 64px) clamp(32px, 6vw, 56px); display: flex; flex-direction: column; gap: 24px; max-width: 760px; position: relative; z-index: 2;">
     <h1 style="margin: 0; font-size: clamp(32px, 5.5vw, 54px); line-height: 1.15; font-weight: 800;">We help build better <span class="rotator-line"><span class="rotator"><span class="rotator-word" id="rotator-word">businesses</span></span><span class="rotator-rocket">🚀</span></span></h1>
     <p style="margin: 0; font-size: clamp(15px, 2.2vw, 18px); line-height: 1.65; color: #5c5344; max-width: 580px;">Running a business is hard. Why make it harder by worrying about the technology? We handle your users, your devices, your endpoint security, and your SaaS stack, so you can get back to your business.</p>
     <div style="display: flex; gap: 16px; margin-top: 8px;">
       <a href="#" class="btn-cta js-open-contact-modal" style="background: #daa520; color: #000000; font-weight: 700; font-size: 16px; padding: 16px 30px; border-radius: 999px;">Let's work together <span class="shake-emoji" aria-hidden="true">🤝</span></a>
     </div>
-  </section>
+    </section>
+  </div>
 
   <!-- Services -->
-  <section id="services" style="padding: 24px clamp(20px, 5vw, 64px) 72px; display: flex; flex-direction: column; gap: 28px;">
+  <section id="services" class="dotted-grid-bg" style="padding: 24px clamp(20px, 5vw, 64px) 72px; display: flex; flex-direction: column; gap: 28px;">
     <h2 style="margin: 0; font-size: 26px; font-weight: 700;">A few of the things we can take off your plate</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; align-items: stretch;">
       <div class="tile" style="background: #ffffff; border-radius: 24px; padding: 26px; display: flex; flex-direction: column; gap: 14px; align-items: flex-start;">
         <div class="tile-icon" style="width: 52px; height: 52px; border-radius: 999px; background: #f2ede4; display: flex; align-items: center; justify-content: center;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8c6a14" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
@@ -131,9 +159,9 @@
   </section>
 
   <!-- Tech stack -->
-  <section style="padding: 24px clamp(20px, 5vw, 64px) 64px; display: flex; flex-direction: column; gap: 24px;">
+  <section id="tools" class="dotted-grid-bg" style="padding: 24px clamp(20px, 5vw, 64px) 64px; display: flex; flex-direction: column; gap: 24px;">
     <h2 style="margin: 0; font-size: 22px; font-weight: 700;">Tools we work in</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; align-items: stretch;">
       <div class="tile" style="background: #ffffff; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px;">
         <div class="tile-icon" style="width: 44px; height: 44px; border-radius: 999px; background: #f2ede4; display: flex; align-items: center; justify-content: center;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8c6a14" stroke-width="1.6"><path d="M6 17a4 4 0 01-.6-7.96 5 5 0 019.55-2 4.5 4.5 0 01-.45 9H6z"/></svg>
@@ -174,7 +202,7 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8c6a14" stroke-width="1.6"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
         </div>
         <h3 style="margin: 0; font-size: 17px; font-weight: 700;">Mobile device management</h3>
-        <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #5c5344;">Company-wide device management and rollouts with Jamf, Zoho ManageEngine, or Mosyle, with custom scripts and self-service portals.</p>
+        <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #5c5344;">Company-wide rollouts with Jamf, Zoho ManageEngine, or Mosyle.</p>
       </div>
       <div class="tile" style="background: #ffffff; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px;">
         <div class="tile-icon" style="width: 44px; height: 44px; border-radius: 999px; background: #f2ede4; display: flex; align-items: center; justify-content: center;">
@@ -201,23 +229,28 @@
     <p style="margin: 0; font-size: 14px; color: #5c5344;">And more — if you're already using something, chances are we've worked in it.</p>
   </section>
 
-  <!-- About -->
-  <section id="about" style="padding: 24px clamp(20px, 5vw, 64px) 64px; display: flex; flex-direction: column; gap: 16px; max-width: 700px;">
+  <!-- About + Contact (mirrored background squares, bottom-right) -->
+  <div style="position: relative; overflow: hidden; margin-top: auto; display: flex; flex-direction: column;">
+    <div class="sq-field-mirror"><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq"></div><div class="sq"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq-spacer"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div></div>
+
+    <!-- About -->
+    <section id="about" style="padding: 24px clamp(20px, 5vw, 64px) 64px; display: flex; flex-direction: column; gap: 16px; max-width: 700px; position: relative; z-index: 2;">
     <h2 style="margin: 0; font-size: 26px; font-weight: 700;">About us</h2>
     <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #5c5344;">Twenty-three years in IT, security, and compliance — spent helping small businesses and startups get their accounts, devices, and SaaS stack properly set up and looked after. No unnecessary hand-offs: you work directly with the person doing the work. Based in Canada, working with companies around the world.</p>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" style="padding: clamp(28px, 5vw, 48px); display: flex; flex-direction: column; gap: 16px; align-items: flex-start; background: #f2ede4; border-radius: 28px; margin: 0 clamp(20px, 5vw, 64px) 24px;">
+    <!-- Contact -->
+    <section id="contact" style="padding: clamp(28px, 5vw, 48px); display: flex; flex-direction: column; gap: 16px; align-items: flex-start; background: rgba(242, 237, 228, 0.38); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 28px; margin: 0 clamp(20px, 5vw, 64px) 56px; position: relative; z-index: 2;">
     <h2 style="margin: 0; font-size: 26px; font-weight: 700;">Say hello 👋</h2>
     <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #5c5344; max-width: 460px;">Share a few details about your business and what you need, and we'll follow up shortly.</p>
     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px; margin-top: 8px;">
       <a href="#" class="btn-cta js-open-contact-modal" style="background: #daa520; color: #000000; font-weight: 700; font-size: 16px; padding: 16px 30px; border-radius: 999px;">Let's work together <span class="shake-emoji" aria-hidden="true">🤝</span></a>
     </div>
-  </section>
+    </section>
+  </div>
 
-  <!-- Footer -->
-  <footer style="margin-top: auto; padding: 40px clamp(20px, 5vw, 64px); border-top: 1px solid #e4dccb; display: flex; flex-wrap: wrap; row-gap: 12px; align-items: center; justify-content: space-between;">
+  <!-- Footer (plain, no background squares) -->
+  <footer style="padding: 40px clamp(20px, 5vw, 64px); border-top: 1px solid #e4dccb; display: flex; flex-wrap: wrap; row-gap: 12px; align-items: center; justify-content: space-between;">
     <div style="display: flex; align-items: center; gap: 10px;">
       <img src="logo.png" alt="Stellr IT" style="width: 20px; height: 20px; object-fit: contain;">
       <span style="font-size: 13px; color: #5c5344;">Stellr IT · Operations &amp; Consulting</span>
