@@ -32,6 +32,8 @@
   #services .tile { height: 244px; }
   #tools .tile { height: 264px; }
   .tile:hover { transform: translateY(-5px); box-shadow: 0 16px 32px rgba(32, 26, 18, 0.14); }
+  .founder-photo { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  .founder-photo:hover { transform: translateY(-5px); box-shadow: 0 16px 32px rgba(32, 26, 18, 0.14); }
   .tile:hover .tile-icon { animation: icon-wiggle 0.4s ease; }
   @keyframes icon-wiggle { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-10deg); } 50% { transform: rotate(10deg); } 75% { transform: rotate(-6deg); } }
   .rotator-line { display: inline-block; vertical-align: bottom; white-space: nowrap; }
@@ -434,7 +436,7 @@
           <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #5c5344;">When he's not armpits deep in the technical weeds, you'll find Andrew hanging out with his family and golden retriever, golfing (he's a 3 handicap if you need a ringer for your scramble team), fishing, making espresso, or following the F1 Mercedes team.</p>
         </div>
         <div style="flex: 0 0 260px; width: 260px;">
-          <img src="founder.png" alt="Andrew, founder of Stellr IT" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 20px; display: block; background: #f2ede4;">
+          <img src="founder.png" class="founder-photo" alt="Andrew, founder of Stellr IT" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 20px; display: block; background: #f2ede4;">
           <p style="margin: 8px 0 0; font-size: 12px; color: #8a8070; text-align: center;">Andrew, founder of Stellr IT</p>
         </div>
       </div>
